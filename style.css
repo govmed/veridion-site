@@ -1,0 +1,97 @@
+/* Veridion LLC — network site. Dark, broadcast-clean, zero dependencies. */
+:root {
+  --page: #0d0f14;
+  --surface: #151821;
+  --surface-2: #1b1f2b;
+  --hairline: #2a2f3d;
+  --ink: #f2f3f5;
+  --ink-2: #b9bdc7;
+  --ink-3: #858b98;
+  --accent: #3987e5;
+  --newsdog: #ffd700;
+  --brief: #4da3ff;
+  --up: #21b854;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--page); color: var(--ink); line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+header.site {
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(13, 15, 20, 0.92); backdrop-filter: blur(8px);
+  position: sticky; top: 0; z-index: 10;
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-weight: 800; letter-spacing: 0.14em; font-size: 15px; color: var(--ink); }
+.logo span { color: var(--accent); }
+nav a { color: var(--ink-2); font-size: 14px; margin-left: 22px; }
+nav a:hover { color: var(--ink); text-decoration: none; }
+
+.hero { padding: 88px 0 64px; text-align: left; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.12; letter-spacing: -0.02em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { margin-top: 18px; max-width: 640px; color: var(--ink-2); font-size: 18px; }
+.chip {
+  display: inline-block; margin-top: 22px; padding: 6px 14px; border-radius: 999px;
+  border: 1px solid var(--hairline); background: var(--surface);
+  color: var(--ink-2); font-size: 12.5px; letter-spacing: 0.08em; font-weight: 600;
+}
+
+section { padding: 56px 0; }
+section.alt { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+h2.section { font-size: 26px; letter-spacing: -0.01em; margin-bottom: 8px; }
+p.section-sub { color: var(--ink-3); margin-bottom: 32px; max-width: 640px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+.card {
+  background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 14px;
+  padding: 26px; display: flex; flex-direction: column; gap: 10px;
+}
+.card h3 { font-size: 20px; }
+.card .tag { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; }
+.tag.dog { color: var(--newsdog); }
+.tag.brief { color: var(--brief); }
+.card p { color: var(--ink-2); font-size: 15px; }
+.card .more { margin-top: auto; font-size: 14px; font-weight: 600; }
+
+.anchor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+.anchor {
+  background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden;
+}
+.anchor img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.anchor .body { padding: 18px 20px 22px; }
+.anchor h3 { font-size: 17px; }
+.anchor .role { color: var(--ink-3); font-size: 13px; margin-bottom: 8px; }
+.anchor p { color: var(--ink-2); font-size: 14px; }
+
+.bio { max-width: 760px; margin: 0 auto; }
+.bio .head { display: flex; gap: 26px; align-items: flex-end; margin-bottom: 26px; flex-wrap: wrap; }
+.bio .head img { width: 190px; border-radius: 14px; border: 1px solid var(--hairline); }
+.bio h2 { font-size: 30px; }
+.bio .role { color: var(--ink-3); }
+.bio blockquote {
+  border-left: 3px solid var(--accent); padding: 4px 0 4px 20px; margin: 22px 0;
+  color: var(--ink-2); font-size: 16.5px;
+}
+.bio .signoff { color: var(--ink); font-style: italic; }
+hr.sep { border: 0; border-top: 1px solid var(--hairline); margin: 56px 0; }
+
+.disclosure {
+  background: var(--surface-2); border: 1px solid var(--hairline); border-left: 4px solid var(--up);
+  border-radius: 12px; padding: 20px 24px; margin-top: 34px; color: var(--ink-2); font-size: 14.5px;
+}
+.disclosure strong { color: var(--ink); }
+
+footer.site { border-top: 1px solid var(--hairline); padding: 34px 0 44px; color: var(--ink-3); font-size: 13.5px; }
+footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  nav a { margin-left: 14px; }
+  .hero { padding: 56px 0 40px; }
+}
