@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Members | Veridion LLC</title>
+<meta name="description" content="Become a Veridion member — sign in to follow NewsDog and The Market Brief from the front row.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .signin-box {
+    max-width: 460px; background: var(--surface-2); border: 1px solid var(--hairline);
+    border-radius: 14px; padding: 34px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .provider-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 12px 18px; border-radius: 10px; font-size: 15px;
+    font-weight: 600; cursor: pointer; border: 1px solid var(--hairline);
+    background: var(--ink); color: #16181d; transition: opacity 0.15s;
+  }
+  .provider-btn:hover { opacity: 0.9; }
+  .provider-btn.soon {
+    background: var(--surface); color: var(--ink-3); cursor: default; font-weight: 500;
+  }
+  .provider-btn.soon:hover { opacity: 1; }
+  .member-card {
+    max-width: 460px; background: var(--surface-2); border: 1px solid var(--hairline);
+    border-radius: 14px; padding: 34px; display: none; text-align: center;
+  }
+  .member-card img { width: 84px; height: 84px; border-radius: 50%; margin-bottom: 14px; border: 2px solid var(--accent); }
+  .member-card h2 { font-size: 24px; margin-bottom: 6px; }
+  .member-card p { color: var(--ink-2); margin-bottom: 18px; }
+  .signout { background: none; border: 1px solid var(--hairline); color: var(--ink-3);
+    border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 13px; }
+  .auth-note { color: var(--ink-3); font-size: 13px; }
+  #auth-error { color: #e05d5d; font-size: 13.5px; display: none; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="index.html" style="color:inherit">VERIDION <span>LLC</span></a></div>
+    <nav>
+      <a href="newsdog.html">NewsDog</a>
+      <a href="marketbrief.html">The Market Brief</a>
+      <a href="transparency.html">Transparency</a>
+      <a href="support.html">Support</a>
+      <a href="members.html">Members</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Members</h1>
+    <p class="lead">Follow the network from the front row. Members get launch
+    announcements, new-anchor debuts, and first word on everything Veridion
+    ships — and it's free.</p>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+
+    <div class="signin-box" id="signin-box">
+      <button class="provider-btn" id="google-btn">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.3 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.7 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg>
+        Continue with Google
+      </button>
+      <button class="provider-btn soon">Continue with Apple — coming soon</button>
+      <button class="provider-btn soon">Continue with Facebook — coming soon</button>
+      <button class="provider-btn soon">Continue with X — coming soon</button>
+      <div id="auth-error"></div>
+      <div class="auth-note" id="auth-note">Signing in creates your free Veridion
+      membership. We store your name and email to send occasional network
+      news — never spam, never sold, never financial advice.</div>
+    </div>
+
+    <div class="member-card" id="member-card">
+      <img id="member-photo" src="" alt="">
+      <h2 id="member-name"></h2>
+      <p>You're a Veridion member. 🎉<br>
+      You'll get first word when new episodes, anchors, and shows land.</p>
+      <button class="signout" id="signout-btn">Sign out</button>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© 2026 Veridion LLC. All presenters are AI-generated and disclosed as such.</div>
+    <div><a href="index.html">Veridion home</a></div>
+  </div>
+</footer>
+
+<script src="firebase-config.js"></script>
+<script type="module">
+  const cfg = window.VERIDION_FIREBASE_CONFIG || {};
+  const googleBtn = document.getElementById("google-btn");
+  const note = document.getElementById("auth-note");
+  const errBox = document.getElementById("auth-error");
+
+  if (!cfg.apiKey) {
+    // Firebase project not connected yet — graceful pre-launch state.
+    googleBtn.classList.add("soon");
+    googleBtn.textContent = "Member sign-in launches soon";
+    note.textContent = "Sign-in is being wired up — check back shortly.";
+  } else {
+    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+    const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
+            getRedirectResult, onAuthStateChanged, signOut } =
+      await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js");
+
+    const auth = getAuth(initializeApp(cfg));
+    const provider = new GoogleAuthProvider();
+
+    const show = (user) => {
+      document.getElementById("signin-box").style.display = user ? "none" : "flex";
+      const card = document.getElementById("member-card");
+      card.style.display = user ? "block" : "none";
+      if (user) {
+        document.getElementById("member-name").textContent = user.displayName || "Member";
+        const photo = document.getElementById("member-photo");
+        photo.src = user.photoURL || "";
+        photo.style.display = user.photoURL ? "inline-block" : "none";
+      }
+    };
+
+    onAuthStateChanged(auth, show);
+    getRedirectResult(auth).catch(() => {});
+
+    googleBtn.addEventListener("click", async () => {
+      errBox.style.display = "none";
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (e) {
+        if (e.code === "auth/popup-blocked" || e.code === "auth/popup-closed-by-user") {
+          try { await signInWithRedirect(auth, provider); } catch (e2) { showErr(e2); }
+        } else { showErr(e); }
+      }
+    });
+    document.getElementById("signout-btn").addEventListener("click", () => signOut(auth));
+    const showErr = (e) => {
+      errBox.textContent = "Sign-in hiccup: " + (e.code || e.message || e);
+      errBox.style.display = "block";
+    };
+  }
+</script>
+
+</body>
+</html>
