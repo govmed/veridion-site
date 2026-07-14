@@ -88,6 +88,22 @@ hr.sep { border: 0; border-top: 1px solid var(--hairline); margin: 56px 0; }
 }
 .disclosure strong { color: var(--ink); }
 
+.episodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); gap: 26px; justify-content: start; }
+.episode {
+  background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 14px;
+  overflow: hidden; max-width: 340px;
+}
+.episode video { width: 100%; aspect-ratio: 9 / 16; display: block; background: #000; }
+.episode .body { padding: 16px 18px 20px; }
+.episode h3 { font-size: 16px; }
+.episode .meta { color: var(--ink-3); font-size: 12.5px; margin: 2px 0 8px; }
+.episode p { color: var(--ink-2); font-size: 14px; }
+.ai-badge {
+  display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 999px;
+  border: 1px solid var(--hairline); color: var(--ink-3);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+}
+
 footer.site { border-top: 1px solid var(--hairline); padding: 34px 0 44px; color: var(--ink-3); font-size: 13.5px; }
 footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
