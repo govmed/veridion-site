@@ -17,3 +17,10 @@ never go on the site.** Self-hosted MP4s are fine at pilot scale (~7MB
 each); when the episode count grows past a few dozen, switch the players
 to TikTok/YouTube embeds or move video to a dedicated host and keep only
 posters here. Every player carries AI-content + not-advice badges.
+
+Members (added 2026-07-13): Google sign-in via Firebase Auth (project
+veridion-d54e2, config in firebase-config.js — public identifiers; the
+protection is the console's authorized-domains list). The member list
+lives in Firebase console → Authentication → Users. Apple/Facebook/X
+buttons are staged "coming soon" — each needs its own developer-account
+registration before enabling as a provider.
