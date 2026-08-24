@@ -1,0 +1,255 @@
+{
+  "platforms": [
+    "iPhone",
+    "iPad",
+    "Mac",
+    "Android",
+    "Windows"
+  ],
+  "apps": [
+    {
+      "slug": "curo",
+      "name": "Curo ADHD",
+      "tagline": "A focus timer for the way ADHD actually works",
+      "category": "Productivity",
+      "platforms": [
+        "iPhone",
+        "iPad",
+        "Mac"
+      ],
+      "price": "Free",
+      "priceNote": "Pro from $3.99/month",
+      "status": "review",
+      "statusLabel": "Awaiting App Store review",
+      "requires": "iOS 17 \u00b7 iPadOS 17 \u00b7 macOS 14",
+      "icon": "assets/icons/curo.png",
+      "shots": [
+        "session.png",
+        "review.png",
+        "parked.png"
+      ],
+      "shotAlt": [
+        "A running focus session: a ring around a large countdown with the current step beneath it",
+        "The review screen: a streak, a fortnight chart, and logged sessions",
+        "The parked queue: captured one-line thoughts waiting to be triaged"
+      ],
+      "summary": "Curo is built around the parts of working that ADHD actually makes hard \u2014 knowing how much time has gone, facing one step instead of a list, and having somewhere to put the thought that just interrupted you.",
+      "features": [
+        [
+          "Time you can see",
+          "The countdown sits in the Mac menu bar and on the iPhone Lock Screen, inside a ring that empties. A shape that is visibly two-thirds gone tells you where you are without arithmetic."
+        ],
+        [
+          "Running long is not failing",
+          "When the planned time is up the timer keeps counting \u2014 +3:12 \u2014 instead of stopping. In amber, never red."
+        ],
+        [
+          "One step, not a list",
+          "Type a rough breakdown and Curo shows exactly one line of it. A step you cannot face goes to the back with Later, without being deleted or lied about."
+        ],
+        [
+          "Somewhere to put the thought",
+          "Press \u2325\u2318Space anywhere on the Mac, or ask Siri, and a one-line field takes whatever just interrupted you."
+        ],
+        [
+          "It never loses time",
+          "Elapsed time is read from timestamps rather than counted by a ticking clock, so a session survives the Mac sleeping, the phone locking, or the app being killed."
+        ],
+        [
+          "Nothing is collected",
+          "No account, no server, no analytics, no advertising. Everything it records stays on the device."
+        ]
+      ],
+      "links": {
+        "site": "/apps/curo/",
+        "privacy": "https://veridion-llc.com/curo/privacy"
+      }
+    },
+    {
+      "slug": "terminal",
+      "name": "SSH Terminal & SFTP",
+      "tagline": "A real shell, and your files, from your pocket",
+      "category": "Developer Tools",
+      "platforms": [
+        "iPhone",
+        "iPad",
+        "Mac",
+        "Android"
+      ],
+      "price": "Free",
+      "status": "live",
+      "requires": "iOS 17 \u00b7 iPadOS 17 \u00b7 macOS 15 \u00b7 Android",
+      "icon": "assets/icons/ssh-terminal.jpg",
+      "shots": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg"
+      ],
+      "summary": "A native, privacy-first SSH client that does two things well: a genuine interactive terminal, and SFTP file transfer over the very same connection. Everything runs from your device straight to the machines you configure.",
+      "features": [
+        [
+          "A real interactive shell",
+          "PTY-backed, xterm-256color, full colour, live resize. vim, htop and tab completion behave the way they do on a desktop."
+        ],
+        [
+          "Hardware keyboard support",
+          "Arrows, Ctrl-C and the rest go straight through to the remote shell rather than being eaten by the app."
+        ],
+        [
+          "SFTP on the same connection",
+          "Browse the remote filesystem, upload from Files and download to your device, with live progress and cancellable transfers."
+        ],
+        [
+          "Keys sealed behind Face ID",
+          "OpenSSH Ed25519 and RSA keys, or passwords \u2014 stored in the Secure Enclave and unlocked biometrically. The whole app can be locked too."
+        ],
+        [
+          "Host keys pinned on first contact",
+          "Trust-on-first-use verification, so you know the server answering is really yours."
+        ],
+        [
+          "Nothing collected",
+          "No accounts, no sign-up, and no servers operated by the app."
+        ]
+      ],
+      "links": {
+        "appStore": "https://apps.apple.com/us/app/ssh-terminal-sftp/id6788175915"
+      }
+    },
+    {
+      "slug": "studio-sentinel",
+      "name": "Studio Sentinel",
+      "tagline": "Watch your Mac think, from your phone",
+      "category": "Developer Tools",
+      "platforms": [
+        "iPhone",
+        "iPad"
+      ],
+      "price": "$4.99",
+      "status": "live",
+      "requires": "iOS 17 \u00b7 iPadOS 17 \u00b7 an Apple Silicon Mac to monitor",
+      "icon": "assets/icons/studio-sentinel.jpg",
+      "shots": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg"
+      ],
+      "summary": "Start a long local-inference job on a Mac Mini or Mac Studio, walk away, and you normally have no idea what happened. Studio Sentinel puts the answer on your phone \u2014 live, over your own network, with nothing sent to a cloud.",
+      "features": [
+        [
+          "CPU, core by core",
+          "Real-time usage across performance and efficiency cores, so you can see what inference is taking versus everything else."
+        ],
+        [
+          "Unified memory and pressure",
+          "Usage, pressure level (nominal, warning, critical), wired pages and free memory \u2014 the numbers that decide whether another model fits."
+        ],
+        [
+          "GPU and thermals",
+          "Apple Silicon GPU utilisation and unified-memory allocation, plus thermal state, so throttling stops being a mystery."
+        ],
+        [
+          "Built for local LLM servers",
+          "Ollama, LM Studio, llama.cpp and anything else you run on Apple Silicon."
+        ],
+        [
+          "Stays on your network",
+          "No cloud relay and no subscription for the core features. The data never leaves your LAN."
+        ]
+      ],
+      "links": {
+        "appStore": "https://apps.apple.com/us/app/studio-sentinel/id6769251676"
+      }
+    },
+    {
+      "slug": "revenge-of-the-worm",
+      "name": "Revenge of the Worm",
+      "tagline": "The worm is done being prey",
+      "category": "Games",
+      "platforms": [
+        "iPhone",
+        "iPad",
+        "Mac"
+      ],
+      "price": "Free",
+      "status": "live",
+      "requires": "iOS 18 \u00b7 iPadOS 18 \u00b7 macOS \u00b7 rated 9+",
+      "icon": "assets/icons/revenge-of-the-worm.jpg",
+      "shots": [
+        "1.jpg"
+      ],
+      "summary": "The classic snake arcade reimagined as a living 3D terrarium: a smoked-glass board, insects that scurry, march in columns and sometimes explode, and one very hungry worm with a score to settle.",
+      "features": [
+        [
+          "Eat, grow, molt",
+          "Hunt ticks, termites and beetles, each worth different points. Hit maximum length and molt \u2014 cash the tail in for points and extra lives."
+        ],
+        [
+          "Things that hunt back",
+          "A wasp dives for your tail; a boss erupts through the glass. Health, hearts and armour decide whether a wall is fatal."
+        ],
+        [
+          "A pack economy worth chasing",
+          "Eleven packs across four rarities \u2014 shields, armour, pulse, lasers, thorns, hearts, wall passes. Legendary drops split the worm in two and let the tail hunt alone."
+        ],
+        [
+          "Built for competition",
+          "Top-ten leaderboards per difficulty with arcade-style initials, and three difficulties that change bombs, acid, bosses and speed."
+        ],
+        [
+          "Collects no data",
+          "No accounts, no analytics, no advertising, no network features at all."
+        ]
+      ],
+      "links": {
+        "appStore": "https://apps.apple.com/us/app/revenge-of-the-worm/id6798535112",
+        "privacy": "https://veridion-llc.com/privacy.html"
+      }
+    },
+    {
+      "slug": "hoa-board",
+      "name": "HOA Board",
+      "tagline": "Field reporting that fills in its own address",
+      "category": "Business",
+      "platforms": [
+        "iPhone",
+        "iPad"
+      ],
+      "price": "Free",
+      "priceNote": "Free to start",
+      "status": "live",
+      "requires": "iOS 17 \u00b7 iPadOS 17 \u00b7 GPS",
+      "icon": "assets/icons/hoa-board.jpg",
+      "shots": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg"
+      ],
+      "summary": "Violation reporting built for someone walking a property rather than sitting at a desk. Open the app on arrival and the address is already filled in.",
+      "features": [
+        [
+          "GPS-powered field reports",
+          "Location is captured the moment you arrive, so you never type another street address in the field. Category, severity and photos, filed in under a minute."
+        ],
+        [
+          "One-tap address discovery",
+          "Scans Apple Maps and probes GPS offsets to find every residential address within a radius you set \u2014 a whole community imported in seconds."
+        ],
+        [
+          "A workflow with an audit trail",
+          "Open \u2192 Noticed \u2192 Warned \u2192 Fined \u2192 Resolved, every status change timestamped and logged, so a board has a record it can stand behind."
+        ],
+        [
+          "Automatic owner lookup",
+          "Connect a Regrid API token and one tap pulls the property owner from public records."
+        ]
+      ],
+      "links": {
+        "appStore": "https://apps.apple.com/us/app/hoa-board/id6774396058"
+      }
+    }
+  ]
+}
