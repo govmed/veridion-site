@@ -17,6 +17,7 @@ repository and does not issue wildcards, so the split is one repo each:
 | `dnn.veridion-llc.com` | `veridion-dnn` |
 | `brief.veridion-llc.com` | `veridion-brief` |
 | `leash.veridion-llc.com` | `veridion-leash` |
+| `apps.veridion-llc.com` | `veridion-apps` — directory of all five apps |
 | `curo.veridion-llc.com` | `veridion-curo` |
 
 That also gives each site its own ~1 GB Pages budget instead of one shared
@@ -25,6 +26,9 @@ across every show — DNN's video alone is over 200 MB.
 **`style.css` lives here and every other site loads it from here.** It is
 the one thing the five sites share; edit it once and all five follow. Each
 site overrides only its accent colour, locally.
+
+The nav carries `Apps`, not `Curo`: one slot for the directory rather than a
+new slot every time an app ships.
 
 The old flat URLs (`/newsdog.html`, `/marketbrief.html`, `/offtheleash.html`,
 `/curo/`) are canonical + meta-refresh stubs pointing at the subdomains,
