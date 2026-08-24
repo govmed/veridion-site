@@ -97,3 +97,6 @@
 /* The logo is two-tone; the global `a { color: accent }` was painting it all blue. */
 .logo a { color: inherit; }
 .logo a:hover { text-decoration: none; }
+
+.links-row { margin-top: 10px; font-size: 13.5px; }
+.links-row a { color: var(--accent); }

@@ -35,6 +35,15 @@ and the certificate already covers them:
     /media          the shows
     /media/dnn  /media/market-brief  /media/off-the-leash
 
+    /support        routes to the two below; path is frozen, see below
+    /apps/support   per-app, generated from apps.json
+    /media/support  corrections, rights, press
+
+`/support` stays a single file, `support.html`, and its two halves live inside
+the sections they belong to. Do **not** create a `support/` directory at the
+root: with both `support.html` and `support/index.html` present, which one
+`/support` resolves to is ambiguous, and that URL is in the shipped binary.
+
 ### /apps is generated — do not hand-edit it
 
 `tools/apps.json` is the single source of truth. Change it, then:

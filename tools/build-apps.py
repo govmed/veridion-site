@@ -28,7 +28,7 @@ def nav(depth_prefix="/"):
       <a href="/apps/">Apps</a>
       <a href="/media/">Media</a>
       <a href="/transparency.html">Transparency</a>
-      <a href="/support.html">Support</a>
+      <a href="/support">Support</a>
       <a href="/members.html">Members</a>
     </nav>'''
 
@@ -64,7 +64,7 @@ def shell(title, desc, canonical, body, extra_head=""):
 <footer class="site">
   <div class="wrap">
     <div>&copy; 2026 Veridion LLC</div>
-    <div><a href="/support.html">Support</a> &middot; <a href="/apps/">All apps</a></div>
+    <div><a href="/support">Support</a> &middot; <a href="/apps/">All apps</a></div>
   </div>
 </footer>
 </body>
@@ -148,7 +148,7 @@ def detail(app):
         ctas.append(f'<a class="btn" href="{e(links["site"])}">Visit the site</a>')
     if links.get("privacy"):
         ctas.append(f'<a class="btn" href="{e(links["privacy"])}">Privacy</a>')
-    ctas.append('<a class="btn" href="/support.html">Support</a>')
+    ctas.append('<a class="btn" href="/support">Support</a>')
 
     feats = "".join(f'''      <div class="feature">
         <h3>{e(t)}</h3>
@@ -199,6 +199,78 @@ def detail(app):
     return shell(f'{app["name"]} — Veridion LLC', app["summary"][:180],
                  f'https://veridion-llc.com/apps/{app["slug"]}/', body)
 
+
+def support_page(apps):
+    """Per-app support rows, generated so a new app cannot be forgotten here."""
+    rows = ""
+    for a in apps:
+        subject = a["name"].split(" &")[0].split(" ADHD")[0]
+        extra = []
+        if a["links"].get("appStore"):
+            extra.append(f'<a href="{e(a["links"]["appStore"])}">App Store</a>')
+        if a["links"].get("privacy"):
+            extra.append(f'<a href="{e(a["links"]["privacy"])}">Privacy</a>')
+        extra.append(f'<a href="{e(detail_url(a))}">About</a>')
+        rows += f'''      <div class="feature">
+        <h3>{e(a["name"])}</h3>
+        <p>Email with the subject <strong>&ldquo;{e(subject)}&rdquo;</strong>.
+        {e(a["category"])} &middot; {e(a["requires"])}</p>
+        <p class="links-row">{" &middot; ".join(extra)}</p>
+      </div>
+'''
+    body = f'''<div class="wrap">
+  <p class="crumb"><a href="/support">&larr; All support</a></p>
+  <div class="hero apps-hero">
+    <h1>Help with an <em>app</em></h1>
+    <p class="lead">One inbox for every app:
+    <a href="mailto:support@veridion-llc.com"><strong>support@veridion-llc.com</strong></a>.
+    Use the subject line below and you will be routed straight to the right place.</p>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="section">Pick the app</h2>
+    <p class="section-sub">Say which platform and which version you are on &mdash; every app shows its version in Settings or About.</p>
+    <div class="feature-grid">
+{rows}    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section">Before you write</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Bug reports</h3>
+        <p>None of these apps collect analytics or send crash reports anywhere,
+        which is deliberate &mdash; but it means we genuinely cannot see what
+        happened. What you were doing just before it went wrong is the most
+        useful thing you can send.</p>
+      </div>
+      <div class="feature">
+        <h3>Subscriptions and refunds</h3>
+        <p>Subscriptions are billed by Apple, not by us, so we cannot cancel or
+        refund one for you. Manage or cancel any subscription in your Apple
+        Account settings, and request refunds through
+        <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>.
+        If something looks wrong on our side, write anyway and we will help.</p>
+      </div>
+      <div class="feature">
+        <h3>Feature requests</h3>
+        <p>Welcome, and read properly. The most useful ones describe the
+        situation you were in rather than the feature you have in mind &mdash;
+        that usually leads somewhere better than the original idea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+'''
+    return shell("App support — Veridion LLC",
+                 "Support for Veridion LLC apps: Curo ADHD, SSH Terminal & SFTP, Studio Sentinel, Revenge of the Worm and HOA Board.",
+                 "https://veridion-llc.com/apps/support/", body)
+
+
 # ---- write everything -------------------------------------------------------
 apps = DATA["apps"]
 OUT.mkdir(exist_ok=True)
@@ -237,5 +309,9 @@ for app in apps:
     d = OUT / app["slug"]; d.mkdir(exist_ok=True)
     (d / "index.html").write_text(detail(app))
     written.append(f'apps/{app["slug"]}/index.html')
+
+d = OUT / "support"; d.mkdir(exist_ok=True)
+(d / "index.html").write_text(support_page(apps))
+written.append("apps/support/index.html")
 
 for w in written: print(f"  {w}")
