@@ -111,3 +111,19 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; fl
   nav a { margin-left: 14px; }
   .hero { padding: 56px 0 40px; }
 }
+
+/* Software promo — homepage block for a shipped app. */
+.promo {
+  display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap;
+  background: var(--surface-2); border: 1px solid var(--hairline);
+  border-radius: 14px; padding: 30px;
+}
+.promo img {
+  width: 88px; height: 88px; border-radius: 20%;
+  border: 1px solid var(--hairline); flex-shrink: 0;
+}
+.promo .body { flex: 1 1 380px; }
+.promo .tag { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; color: var(--brief); }
+.promo h3 { font-size: 21px; margin-top: 6px; }
+.promo p { color: var(--ink-2); font-size: 15px; margin-top: 10px; }
+.promo .more { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; }
