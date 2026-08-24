@@ -2,10 +2,39 @@
 
 The public website for Veridion LLC — veridion-llc.com.
 
-Static site (no build step): Veridion front page, NewsDog and The Market
-Brief show pages with press bios, and the network transparency standards.
-Deployed via GitHub Pages; the domain is registered at Hostinger and
-pointed here via DNS.
+Static site (no build step), deployed via GitHub Pages. The domain is
+registered at Hostinger and pointed here via DNS.
+
+## This repo is the hub, not the whole site
+
+Each property has its own subdomain, its own repo, and its own
+auto-provisioned certificate — GitHub Pages allows one custom domain per
+repository and does not issue wildcards, so the split is one repo each:
+
+| Host | Repo |
+|---|---|
+| `veridion-llc.com` | `veridion-site` (this one) — directory, Transparency, Support, Members |
+| `dnn.veridion-llc.com` | `veridion-dnn` |
+| `brief.veridion-llc.com` | `veridion-brief` |
+| `leash.veridion-llc.com` | `veridion-leash` |
+| `curo.veridion-llc.com` | `veridion-curo` |
+
+That also gives each site its own ~1 GB Pages budget instead of one shared
+across every show — DNN's video alone is over 200 MB.
+
+**`style.css` lives here and every other site loads it from here.** It is
+the one thing the five sites share; edit it once and all five follow. Each
+site overrides only its accent colour, locally.
+
+The old flat URLs (`/newsdog.html`, `/marketbrief.html`, `/offtheleash.html`,
+`/curo/`) are canonical + meta-refresh stubs pointing at the subdomains,
+because GitHub Pages serves no server-side redirects.
+
+### Two URLs that must never move
+
+`veridion-llc.com/support` and `veridion-llc.com/curo/privacy` are compiled
+into the shipped Curo binary and registered in App Store Connect. They stay
+on this repo, at these paths, for the life of every installed copy.
 
 Content sources: press bios from `govmed/newsdog` (docs/anchor-bios.md)
 and `govmed/marketbrief` (docs/*-bio.md) — public press-bio sections only,
