@@ -63,3 +63,25 @@ Old flat URLs (`/newsdog.html`, `/marketbrief.html`, `/offtheleash.html`,
 `/curo/`) are canonical + meta-refresh stubs, because Pages serves no
 server-side redirects.
 
+## Pending: App Store listings still point at veridiontechnology.com
+
+Four shipped apps carry support/marketing URLs on the *other* domain. Apple
+freezes these on a live version — `PATCH` returns
+`409 STATE_ERROR: Attribute 'supportUrl' cannot be edited at this time` — so
+each one can only be corrected **in that app's next version submission**:
+
+| App | currently points at | should be |
+|---|---|---|
+| SSH Terminal & SFTP | `veridiontechnology.com/ssh-terminal` + `/ssh-terminal-support` | `/apps/terminal/` + `/support` |
+| Studio Sentinel | `govmed.github.io/MacSentinelAgent/` (support), `veridiontechnology.com` | `/apps/studio-sentinel/` + `/support` |
+| HOA Board | `veridiontechnology.com/support.html` + `veridiontechnology.com` | `/apps/hoa-board/` + `/support` |
+| Revenge of the Worm | `veridion-llc.com` (support), none (marketing) | `/apps/revenge-of-the-worm/` + `/support` |
+
+Curo's marketing URL is currently its **privacy policy**, which is the wrong
+field; set it to `/apps/curo/` once it is out of review.
+
+**Until those ship, veridiontechnology.com cannot simply become a test site** —
+these four paths are reached from live App Store listings:
+`/ssh-terminal`, `/ssh-terminal-support`, `/support.html`, `/`. That site runs
+on Netlify, which unlike GitHub Pages does real 301s, so the clean fix is to
+turn it into a redirector and test somewhere else entirely.
