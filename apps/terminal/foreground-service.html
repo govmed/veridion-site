@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moderno Terminal — Foreground service use | Veridion LLC</title>
+<meta name="description" content="How Moderno Terminal uses Android's FOREGROUND_SERVICE_SPECIAL_USE permission to keep an interactive SSH session alive, with a recorded demonstration.">
+<link rel="canonical" href="https://veridion-llc.com/apps/terminal/foreground-service.html">
+<!-- Root-relative: this page sits in /apps/terminal/, so "style.css" would
+     resolve to /apps/terminal/style.css and silently load nothing. -->
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="Moderno Terminal — Foreground service use | Veridion LLC">
+<meta property="og:description" content="How Moderno Terminal uses Android's FOREGROUND_SERVICE_SPECIAL_USE permission to keep an interactive SSH session alive, with a recorded demonstration.">
+<meta property="og:url" content="https://veridion-llc.com/apps/terminal/foreground-service.html">
+<style>
+  .demo { max-width: 380px; margin: 0 auto; }
+  .demo video { width: 100%; border-radius: 12px; display: block; }
+  .demo figcaption { font-size: .85rem; opacity: .7; margin-top: 10px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/index.html" style="color:inherit">VERIDION <span>LLC</span></a></div>
+    <nav>
+      <a href="/apps/">Apps</a>
+      <a href="/media/">Media</a>
+      <a href="/transparency.html">Transparency</a>
+      <a href="/support">Support</a>
+      <a href="/members.html">Members</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="crumb"><a href="/apps/terminal/">&larr; Moderno Terminal</a></p>
+  <div class="hero">
+    <h1>Foreground service use</h1>
+    <p class="lead">Moderno Terminal declares Android&rsquo;s
+    <strong>FOREGROUND_SERVICE_SPECIAL_USE</strong> permission. This page explains what it is for
+    and shows it working, for anyone reviewing the app.</p>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <figure class="demo">
+      <video controls playsinline preload="metadata"
+             src="/apps/terminal/media/moderno-terminal-foreground-service.mp4"></video>
+      <figcaption>A long-running remote command continues while the app is in the background.
+      Recorded on Android 16. 60 seconds, no audio.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section">What the recording shows</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="tag brief">1 &middot; CONNECT</div>
+        <h3>A real SSH session</h3>
+        <p>The app connects to a server and opens an interactive shell with a PTY. A long-running
+        command is started &mdash; here, output streaming a line at a time.</p>
+      </div>
+      <div class="card">
+        <div class="tag brief">2 &middot; LEAVE</div>
+        <h3>The app goes to the background</h3>
+        <p>Home is pressed while the command is still running. The notification shade shows the
+        ongoing notification, <em>&ldquo;SSH session connected &mdash; tap to return to your
+        terminal&rdquo;</em>, naming what is still active.</p>
+      </div>
+      <div class="card">
+        <div class="tag brief">3 &middot; RETURN</div>
+        <h3>The work continued</h3>
+        <p>On return the output has advanced well past where it was &mdash; roughly 150 further
+        lines arrived while the app was away. The session was never interrupted, restarted or
+        replayed.</p>
+      </div>
+    </div>
+
+    <div class="disclosure">
+      <strong>Why the permission is necessary.</strong> Without a foreground service, Android&rsquo;s
+      cached-app freezer suspends the process shortly after it leaves the screen and the SSH
+      connection drops, killing whatever was running &mdash; a build, a backup, a database
+      migration.<br><br>
+      <strong>Why the task cannot be paused or restarted.</strong> An SSH session is stateful. The
+      remote shell, its working directory, its environment and any process it started exist only
+      for the life of that one connection. Reconnecting opens a new session on the server; the work
+      in progress is gone. There is nothing to resume.<br><br>
+      <strong>Scope.</strong> The service runs only while a session is open, shows an ongoing
+      notification naming the connected host for the whole time, and stops the moment the session
+      closes.
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div>&copy; 2026 Veridion LLC &middot; <a href="mailto:support@veridion-llc.com">support@veridion-llc.com</a></div>
+    <div><a href="/apps/terminal/">Moderno Terminal</a> &middot; <a href="/apps/terminal/privacy.html">Privacy</a> &middot; <a href="/index.html">Veridion home</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
