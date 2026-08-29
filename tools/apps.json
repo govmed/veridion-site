@@ -19,8 +19,7 @@
       ],
       "price": "Free",
       "priceNote": "Pro from $3.99/month",
-      "status": "review",
-      "statusLabel": "Awaiting App Store review",
+      "status": "live",
       "requires": "iOS 17 \u00b7 iPadOS 17 \u00b7 macOS 14",
       "icon": "assets/icons/curo.png",
       "shots": [
@@ -62,7 +61,8 @@
       ],
       "links": {
         "site": "/apps/curo/",
-        "privacy": "https://veridion-llc.com/curo/privacy"
+        "privacy": "https://veridion-llc.com/curo/privacy",
+        "appStore": "https://apps.apple.com/us/app/curo-adhd/id6804250895"
       }
     },
     {
