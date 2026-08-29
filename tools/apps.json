@@ -86,7 +86,7 @@
         "3.jpg",
         "4.jpg"
       ],
-      "summary": "A native, privacy-first SSH client that does two things well: a genuine interactive terminal, and SFTP file transfer over the very same connection. Everything runs from your device straight to the machines you configure.",
+      "summary": "A native, privacy-first SSH client that does two things well: a genuine interactive terminal, and SFTP file transfer over the very same connection. Everything runs from your device straight to the machines you configure. On Android the same app is published as Moderno Terminal \u2014 SSH & SFTP.",
       "features": [
         [
           "A real interactive shell",
@@ -111,10 +111,15 @@
         [
           "Nothing collected",
           "No accounts, no sign-up, and no servers operated by the app."
+        ],
+        [
+          "Also on Android, as Moderno Terminal",
+          "The Android edition is published as Moderno Terminal \u2014 SSH & SFTP. Same app, same privacy policy, different store listing."
         ]
       ],
       "links": {
-        "appStore": "https://apps.apple.com/us/app/ssh-terminal-sftp/id6788175915"
+        "appStore": "https://apps.apple.com/us/app/ssh-terminal-sftp/id6788175915",
+        "privacy": "/apps/terminal/privacy"
       }
     },
     {
