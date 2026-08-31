@@ -69,9 +69,10 @@
         <h3>What the app doesn't do</h3>
         <p>No accounts and no sign-up. No analytics, no telemetry, and no
         crash-reporting service. No advertising, and the app does not request or
-        use an advertising ID. No third-party tracking SDKs. The app makes no
-        network requests of its own — the only connections it opens are the SSH
-        connections you ask for.</p>
+        use an advertising ID. No third-party tracking SDKs. The app opens no
+        connection to us, ever — the only connections it makes are the SSH
+        connections you ask for and, if you switch on the optional AI assistant
+        described below, requests to the AI provider you choose.</p>
       </div>
       <div class="card">
         <div class="tag brief">YOUR CONNECTIONS</div>
@@ -82,6 +83,34 @@
         encrypted SSH connection. We have no access to that traffic and no
         record that it happened. The servers themselves are operated by you or
         by third parties, under their own policies rather than this one.</p>
+      </div>
+      <div class="card">
+        <div class="tag brief">AI ASSISTANT &mdash; OFF BY DEFAULT</div>
+        <h3>Terminal text you choose to send</h3>
+        <p>The app includes an optional assistant that can explain terminal
+        output or suggest a command. It is <strong>off until you turn it
+        on</strong> in Settings, and it stays off after an update. While it is
+        off, no terminal content leaves your device for this purpose and the
+        feature's button does not appear.</p>
+        <p>If you turn it on, you supply the endpoint and your own API key
+        &mdash; we do not provide a model, an account, or a proxy, and your
+        requests never pass through us. When you press <em>Explain</em> or
+        <em>Suggest a command</em>, the app sends the recent terminal text shown
+        in the panel to <strong>the provider you named</strong>. That company
+        receives it and handles it under their privacy policy and terms, not
+        this one. Choosing a model on your own network keeps the text on your
+        network.</p>
+        <p>Before anything is sent, the app removes text that looks like a
+        secret &mdash; passwords, private keys, tokens, API keys, and
+        credentials in URLs &mdash; and replaces it with <code>[redacted]</code>.
+        This is a filter for the shapes secrets usually take, not a guarantee
+        that every secret is caught, which is why the panel shows you the exact
+        text first and sends nothing until you press a button.</p>
+        <p>Your API key is encrypted with a hardware-backed key in the Android
+        Keystore and is sent only to the endpoint you configured. Plain HTTP is
+        refused for anything outside your own network, so the key is not
+        transmitted unencrypted across the internet. The app keeps no copy of
+        your questions or the answers once the panel is closed.</p>
       </div>
       <div class="card">
         <div class="tag brief">FILE TRANSFERS</div>
