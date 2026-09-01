@@ -253,7 +253,8 @@
         ]
       ],
       "links": {
-        "appStore": "https://apps.apple.com/us/app/hoa-board/id6774396058"
+        "appStore": "https://apps.apple.com/us/app/hoa-board/id6774396058",
+        "privacy": "/apps/hoa-board/privacy"
       }
     }
   ]
