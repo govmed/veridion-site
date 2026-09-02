@@ -165,7 +165,8 @@
         ]
       ],
       "links": {
-        "appStore": "https://apps.apple.com/us/app/studio-sentinel/id6769251676"
+        "appStore": "https://apps.apple.com/us/app/studio-sentinel/id6769251676",
+        "privacy": "/apps/studio-sentinel/privacy"
       }
     },
     {

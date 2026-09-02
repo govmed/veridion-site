@@ -38,6 +38,10 @@ the publishing entity renamed to Veridion LLC.
 Set these when submitting each app's next version. Once all three have shipped,
 the redirects can go and the domain can lapse.
 
-**Studio Sentinel's `privacyPolicyUrl` is a separate problem** — it points at
-`govmed.github.io/MacSentinelAgent/privacy.html`, a raw GitHub URL on a paid
-app. It needs a page here too, and the same next-submission treatment.
+**Studio Sentinel's `privacyPolicyUrl` was a separate problem, now contained.**
+It points at `govmed.github.io/MacSentinelAgent/privacy.html`, which **returned
+404** — the file existed only under `docs/`, so a live paid app had a dead
+privacy link. Fixed on 1 September 2026 by serving the policy at the repo root
+as well, renamed to Veridion LLC. The page is also republished here at
+`/apps/studio-sentinel/privacy`; repoint the listing at it on the next
+submission.
